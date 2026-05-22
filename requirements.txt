@@ -1,0 +1,2 @@
+# Math module has no external dependencies
+# All functionality uses Python standard library
