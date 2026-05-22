@@ -1,0 +1,65 @@
+openapi: 3.0.0
+info:
+  title: Math Utility Module API
+  description: |
+    Comprehensive mathematical operations module providing 60+ functions for:
+    - Basic arithmetic (add, subtract, multiply, divide, power, modulo)
+    - Advanced operations (roots, factorial, logarithms)
+    - Trigonometry (sine, cosine, tangent, arc functions)
+    - Statistics (mean, median, mode, variance, standard deviation)
+    - Geometry (circle, rectangle, triangle, sphere, cylinder calculations)
+    - Number theory (prime checking, GCD, LCM, Fibonacci)
+    - Conversions (angles, temperature)
+    
+    This is a utility library module, not a REST API service.
+  version: 1.0.0
+  contact:
+    name: AGV-186 Development Team
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+paths:
+  /health:
+    get:
+      summary: Health check endpoint
+      description: Returns service health status
+      operationId: healthCheck
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: healthy
+                  timestamp:
+                    type: string
+                    format: date-time
+components:
+  schemas:
+    MathOperations:
+      type: object
+      description: Comprehensive mathematical operations class
+      properties:
+        precision:
+          type: integer
+          description: Decimal precision for calculations
+          default: 10
+          example: 10
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        details:
+          type: string
+          description: Detailed error information
+tags:
+  - name: math
+    description: Mathematical operations
+  - name: health
+    description: Service health monitoring
